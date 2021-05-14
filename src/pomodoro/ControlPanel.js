@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ControlPanel({playPause, classNames, isTimerRunning, stopSession}) {
+export default function ControlPanel({session, playPause, classNames, isTimerRunning, stopSession}) {
     return (
         <div className="col">
           <div
@@ -30,7 +30,7 @@ export default function ControlPanel({playPause, classNames, isTimerRunning, sto
               className="btn btn-secondary"
               data-testid="stop"
               title="Stop the session"
-              disabled={!isTimerRunning}
+              disabled={!session}
               onClick={stopSession}
             >
               <span className="oi oi-media-stop" />

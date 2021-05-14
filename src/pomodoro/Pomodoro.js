@@ -111,18 +111,21 @@ function Pomodoro() {
   return (
     <div className="pomodoro">
       <div className="row">
-        
-        <DurationSetting type="focus" duration={focusDuration} increaseDuration={increaseFocus} 
-        decreaseDuration={decreaseFocus} isTimerRunning={isTimerRunning}/>
-        <DurationSetting type="break" duration={breakDuration} increaseDuration={increaseBreak} 
-        decreaseDuration={decreaseBreak} isTimerRunning={isTimerRunning}/>
+        <div className="col">
+          <DurationSetting session={session} type="focus" duration={focusDuration} increaseDuration={increaseFocus} 
+          decreaseDuration={decreaseFocus} isTimerRunning={isTimerRunning}/>
+        </div>
+        <div className="col">
+          <div className="float-right">
+            <DurationSetting session={session} type="break" duration={breakDuration} increaseDuration={increaseBreak} 
+            decreaseDuration={decreaseBreak} isTimerRunning={isTimerRunning}/>
+          </div>
+        </div>
       </div>
       <div className="row">
-        <ControlPanel playPause={playPause} classNames={classNames} isTimerRunning={isTimerRunning} stopSession={stopSession}/>
+        <ControlPanel session={session} playPause={playPause} classNames={classNames} isTimerRunning={isTimerRunning} stopSession={stopSession}/>
       </div>
-      <div className="row align-items-center">
         <SessionInformation session={session} focusDuration={focusDuration} breakDuration={breakDuration} isTimerRunning={isTimerRunning}/>
-      </div>
     </div>
   );
 }
